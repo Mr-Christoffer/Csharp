@@ -52,23 +52,33 @@ Console.WriteLine($"Du heter {username}");
 
 Console.WriteLine($"Du heter {username} och är {height} meter lång");
 
-Console.WriteLine("Är du en utvecklare? Svara yes eller no!");
-string? isUserDeveloperString = Console.ReadLine();
-bool isUserDeveloper = false;
-if (isUserDeveloperString == "yes")
+bool cont = true;
+while (cont == true)
 {
-    isUserDeveloper = true;
-}
-if (isUserDeveloper)
-{
-    Console.WriteLine($"{username} är en utvecklare");
+    Console.WriteLine("Är du en utvecklare? Svara yes eller no!");
+    string? isUserDeveloperString = Console.ReadLine();
+    bool isUserDeveloper = false;
 
-}
-else
-{
-    Console.WriteLine($"{username} är inte en utvecklare!");
-}
+    if (isUserDeveloperString.ToLower() == "yes")
+    {
+        isUserDeveloper = true;
+    }
+    if (isUserDeveloper)
+    {
+        Console.WriteLine($"{username} är en utvecklare");
+        cont = false;
 
+    }
+    else if (isUserDeveloperString.ToLower() == "nej")
+    {
+        Console.WriteLine($"{username} är inte en utvecklare!");
+        cont = false;
+    }
+    else
+    {
+        Console.WriteLine("Felinmatning!");
+    }
+}
 
 
 
